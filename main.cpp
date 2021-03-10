@@ -8,9 +8,39 @@ using Catch::Matchers::Equals;
 
 // Fix the following class
 class Complex {
+
+  private:
+  int integer, integer2;
+  public:
+  Complex (int integer=0, int integer2=0);
+  int re();
+  int im();
     void operator>>(std::string&) const;
     void operator<<(const std::string&);
 };
+
+int Complex::re()
+{ return integer;}
+int Complex::im()
+{return integer2;}
+
+Complex::Complex(int integer, int integer2)
+{
+  integer = integer;
+  integer2= integer2;
+}
+
+
+void Complex::operator <<(const std::string &s)const{
+s.append.append(std::to_string(integer));
+
+}
+void Complex::operator >>(const std::string &s){
+
+}
+
+
+
 
 //------------------------------
 //   DO NOT MODIFY TEST CASES
