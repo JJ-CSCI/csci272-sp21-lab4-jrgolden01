@@ -8,36 +8,43 @@ using Catch::Matchers::Equals;
 
 // Fix the following class
 class Complex {
+int a,b;
 
-  private:
-  int integer, integer2;
   public:
-  Complex (int integer=0, int integer2=0);
+  Complex (int = 0, int = 0);
   int re();
   int im();
     void operator>>(std::string&) const;
     void operator<<(const std::string&);
 };
 
-int Complex::re()
-{ return integer;}
-int Complex::im()
-{return integer2;}
+Complex::Complex(int x, int y): a{x}, b{y}{};
+int Complex::re(){return a;}
+int Complex::im(){return b;}
 
-Complex::Complex(int integer, int integer2)
-{
-  integer = integer;
-  integer2= integer2;
-}
+void Complex::operator>>(std::string & out)const{
 
+  out.append(std::to_string(a));
+    if (b>=0)
+      out  += '+'; 
+out += std::to_string(b);
+out += 'i';
 
-void Complex::operator <<(const std::string &s)const{
-s.append.append(std::to_string(integer));
+};
 
-}
-void Complex::operator >>(const std::string &s){
+void Complex::operator<<(const std::string & in){
+int index{1};
+std::string tmp{""};
 
-}
+while(!(in[index] =='+' || in[index] == '-'))
+      index++;
+      tmp.append(in ,0,index );
+  a=std::stoi(tmp);
+  tmp.clear();
+  tmp.append(in, index,in.length()-index-1 );
+  b=std::stoi(tmp);
+  b=std::stoi(in.substr(index,in.length()- index - 1));
+};
 
 
 
